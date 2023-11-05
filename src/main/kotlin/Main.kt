@@ -1,9 +1,11 @@
-import robos.MarcianoAvancado
+import classes.AcaoPersonalizada
 import helpers.lerOperador
 import helpers.toOperacaoNumerica
+import robos.MarcianoPremium
 
 fun main() {
-    val marciano = MarcianoAvancado()
+    val acaoUsuario = AcaoPersonalizada()
+    val marciano = MarcianoPremium(acaoUsuario)
 
     println("Bem-vindo ao Robô Marciano! Digite 'FIM' para encerrar.")
     while (true) {
@@ -14,14 +16,15 @@ fun main() {
         } else {
             val operacaoNumerica = comando.toOperacaoNumerica()
 
-            if (operacaoNumerica != null) {
-                val a = lerOperador(1)
-                val b = lerOperador(2)
+            var a = 0.0
+            var b = 0.0
 
-                marciano.responda(comando, a, b)
-            } else {
-                marciano.responda(comando)
+            if (operacaoNumerica != null) {
+                a = lerOperador(1)
+                b = lerOperador(2)
             }
+
+            marciano.responda(comando, a, b)
         }
     }
 }

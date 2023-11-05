@@ -17,3 +17,14 @@ fun String.toOperacaoNumerica(): OperacaoNumerica? {
         else -> null
     }
 }
+
+fun contador(from: Int, onComplete: () -> Unit) {
+    var count = from
+    while (count >= 0) {
+        println("Contador: $count")
+        count--
+        Thread.sleep(1000)
+    }
+
+    onComplete()
+}

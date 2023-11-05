@@ -7,7 +7,7 @@ open class Marciano {
         } else if (frase.uppercase().contains("EU")) {
             println("A responsabilidade é sua")
         } else {
-            val palavras: List<String> = frase.replace(Regex("\\s+"), " ").split(" ")
+            val palavras: List<String> = frase.trim().replace(Regex("\\s+"), " ").split(" ")
             var isGrito: Boolean = false
 
             for (palavra in palavras) {
