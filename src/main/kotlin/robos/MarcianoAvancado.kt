@@ -1,9 +1,9 @@
 package robos
 
-import enums.toOperacaoNumerica
+import helpers.toOperacaoNumerica
 
-class MarcianoAvancado : Marciano() {
-    fun responda(frase: String, a: Double, b: Double) {
+open class MarcianoAvancado : Marciano() {
+    open fun responda(frase: String, a: Double, b: Double) {
         val operacaoNumerica = frase.toOperacaoNumerica()
         if (operacaoNumerica != null) {
             val valor = operacaoNumerica.calcular(a, b)

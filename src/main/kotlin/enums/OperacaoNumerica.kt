@@ -28,13 +28,3 @@ enum class OperacaoNumerica {
 
     abstract fun calcular(a: Double, b: Double): Double
 }
-
-fun String.toOperacaoNumerica(): OperacaoNumerica? {
-    return when (this.lowercase()) {
-        "some" -> OperacaoNumerica.SOMA
-        "subtraia" -> OperacaoNumerica.SUBTRACAO
-        "multiplique" -> OperacaoNumerica.MULTIPLICACAO
-        "divida" -> OperacaoNumerica.DIVISAO
-        else -> null
-    }
-}
