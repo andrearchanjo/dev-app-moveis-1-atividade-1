@@ -1,7 +1,8 @@
-import robos.Marciano
+import robos.MarcianoAvancado
+import enums.toOperacaoNumerica
 
 fun main() {
-    val marciano = Marciano()
+    val marciano = MarcianoAvancado()
 
     println("Bem-vindo ao Robô Marciano! Digite 'FIM' para encerrar.")
     while (true) {
@@ -9,7 +10,24 @@ fun main() {
         val comando = readLine() ?: ""
         if (comando == "FIM") {
             break
+        } else {
+            val operacaoNumerica = comando.toOperacaoNumerica()
+
+            if (operacaoNumerica != null) {
+                val a = lerOperador(1)
+
+                val b = lerOperador(2)
+
+                marciano.responda(comando, a, b)
+            } else {
+                marciano.responda(comando)
+            }
         }
-        marciano.responda(comando)
     }
+}
+
+fun lerOperador(numOperador: Int): Double {
+    print("Operador $numOperador: ")
+    val operador = readLine() ?: ""
+    return operador.toDoubleOrNull() ?: 0.0
 }
